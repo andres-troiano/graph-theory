@@ -1,5 +1,4 @@
 # Funcion para leer archivos.
-# De qué tipo? No hay un equivalente built-in?
 def ldata(archive):
     f=open(archive)
     data=[]
@@ -13,7 +12,6 @@ def ldata(archive):
 def split(txt, seps):
     default_sep = seps[0]
 
-    # we skip seps[0] because that's the default separator
     for sep in seps[1:]:
         txt = txt.replace(sep, default_sep)
     return [i.strip() for i in txt.split(default_sep)]
