@@ -5,11 +5,11 @@ En este trabajo se analizan distintas redes (redes de interacción proteína-pro
 ## Parte 1
 En esta sección se estudian 3 redes de interacciones entre proteínas, las cuales están en la carpeta "dataset". Estas 3 redes corresponden al mismo organismo (levadura) pero fueron relevadas de distintas maneras:
 
-* yeast_Y2H: red de interacciones binarias
-* yeast_AP-MS: red de copertenencia a complejos proteicos
-* yeast_LIT: red relevada de la literatura
+* ``yeast_Y2H.txt``: red de interacciones binarias
+* ``yeast_AP-MS.txt``: red de copertenencia a complejos proteicos
+* ``yeast_LIT.txt``: red relevada de la literatura
 
-En el script "parte_1.py" se desarrolla el siguiente análisis:
+En el script ``parte_1.py`` se desarrolla el siguiente análisis:
 En primer lugar se grafica cada red representándola con un grafo, donde cada nodo es una proteína y cada vértice representa una interacción. Para mayor claridad sólo se graficó la componente conexa más grande, como se muestra a continuación:
 
 ![red Y2H](./images/red_Y2H.png)
