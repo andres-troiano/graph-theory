@@ -13,3 +13,5 @@ En el script "parte_1.py" se desarrolla el siguiente análisis:
 En primer lugar se grafica cada red representándola con un grafo, donde cada nodo es una proteína y cada vértice representa una interacción. Para mayor claridad sólo se graficó la componente conexa más grande, como se muestra a continuación:
 
 ![red Y2H](./images/red_Y2H.png)
+![red AP-MS](./images/red_AP-MS.png)
+![red LIT](./images/red_LIT.png)
