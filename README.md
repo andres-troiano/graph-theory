@@ -3,7 +3,7 @@
 En este trabajo se analizan distintas redes (redes de interacción proteína-proteína, redes sociales, redes de colaboraciones científicas) utilizando herramientas de Redes Complejas. Ésta es un área de investigación relativamente joven (años 2000) de la que fueron pioneros László Barabási y Mark Newman entre otros.
 
 ## Parte 1
-En esta sección se estudian 3 redes de interacciones entre proteínas, las cuales están en la carpeta ``dataset``. Estas 3 redes corresponden al mismo organismo (levadura) pero fueron relevadas de distintas maneras (esto se explica en detalle en la sección ``Análisis de los resultados``):
+En esta sección se estudian 3 redes de interacciones entre proteínas, las cuales están en la carpeta ``dataset``. Estas 3 redes corresponden a un mismo organismo (levadura) pero fueron relevadas de distintas maneras (esto se explica en detalle en la sección ``Análisis de los resultados``):
 
 * ``yeast_Y2H.txt``: red de interacciones binarias
 * ``yeast_AP-MS.txt``: red de copertenencia a complejos proteicos
