@@ -1,2 +1,2 @@
-# Redes-Complejas
-Redes de interacción de proteínas analizadas con herramientas de redes complejas
+# Redes Complejas
+Análisis de redes de interacción entre proteínas
