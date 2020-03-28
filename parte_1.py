@@ -19,8 +19,6 @@ for f in files:
     G.add_edges_from(datos)
     
     tag = split(f, ("_", "."))[1]
-    
-    print(tag)
 
     # calculo N
     N = G.number_of_nodes()
