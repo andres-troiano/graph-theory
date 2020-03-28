@@ -31,14 +31,14 @@ for f in files:
 
     # k max y min
     grado = G.degree()
-    grado_2 = [grados[1] for grados in grado] # qué diferencia hay??
+    grado_2 = [grados[1] for grados in grado]
     k_max = max(grado_2)
     k_min = min(grado_2)
 
     # densidad
-    densidad = nx.density(G) # qué unidades tiene esto?
+    densidad = nx.density(G)
 
-    # coeficientes de clustering. IDEM ??
+    # coeficientes de clustering.
     c_global = nx.transitivity(G)
     c_local = nx.average_clustering(G)
     
