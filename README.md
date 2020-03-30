@@ -56,6 +56,6 @@ El primer objetivo es determinar si los nodos de alto grado tienden a conectarse
 
 ### Resultados y análisis
 #### Red de sistemas autónomos
-![as_scatter](./images/as_scatter.png =250x) ![as_fit](./images/as_fit.png)
+![as_scatter](./images/as_scatter.png =250x250) ![as_fit](./images/as_fit.png)
 
 #### Red de colaboraciones científicas
