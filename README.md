@@ -58,7 +58,7 @@ El primer objetivo es determinar si los nodos de alto grado tienden a conectarse
 #### Red de sistemas autónomos
 ![as_scatter](./images/as_scatter.png) ![as_fit](./images/as_fit.png)
 
-En las dos figuras superiores se observa lo siguiente: cada punto azul es un nodo. En la coordenada *𝑥* está su grado, y en la coordenada 𝑦 el promedio de los grados de todos sus vecinos. En rojo se muestra el promedio del grado medio de los vecinos para cada grado (*𝑘<sub>nm</sub>*). En otras palabras: el promedio de todas las coordenadas *𝑦* realizadas para cada coordenada *𝑥*
+En las dos figuras superiores se observa lo siguiente: cada punto azul es un nodo. En la coordenada *𝑥* está su grado, y en la coordenada 𝑦 el promedio de los grados de todos sus vecinos. En rojo se muestra el promedio del grado medio de los vecinos para cada grado (*𝑘<sub>nm</sub>*). En otras palabras, el promedio de todas las coordenadas *𝑦* realizadas para cada coordenada *𝑥*.
 
 La pendiente del ajuste es -0.44, mientras que el estimador de Newman es -0.20. Ambos son consistentes en indicar disortatividad, dado el signo negativo. Es decir que en esta red los nodos de alto grado tienden a relacionarse con nodos de bajo grado.
 
