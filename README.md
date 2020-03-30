@@ -60,9 +60,9 @@ El primer objetivo es determinar si los nodos de alto grado tienden a conectarse
 
 En las dos figuras superiores se observa lo siguiente: cada punto azul es un nodo. En la coordenada *𝑥* está su grado, y en la coordenada 𝑦 el promedio de los grados de todos sus vecinos. En rojo se muestra el promedio del grado medio de los vecinos para cada grado (*𝑘<sub>nm</sub>*). En otras palabras: el promedio de todas las coordenadas *𝑦* realizadas para cada coordenada *𝑥*
 
-En esta red se observa una tendencia a que nodos de alto grado se relacionen más con otros nodos de bajo grado, es decir que presenta un comportamiento disortativo.
+La pendiente del ajuste es -0.44, mientras que el estimador de Newman es -0.20. Ambos son consistentes en indicar disortatividad, dado el signo negativo. Es decir que en esta red los nodos de alto grado tienden a relacionarse con nodos de bajo grado.
 
 #### Red de colaboraciones científicas
 ![netscience_scatter](./images/netscience_scatter.png) ![netscience_fit](./images/netscience_fit.png)
 
-EEn esta otra red en cambio se observa un comportamiento asortativo.
+En este caso la pendiente del ajuste es 0.31 mientras que el estimador de Newman es 0.46, con lo cual decimos que esta red es asortativa con respecto al grado.
