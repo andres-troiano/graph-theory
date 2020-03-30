@@ -49,6 +49,6 @@ En el script ``parte_2.py`` se analizan dos redes relevadas por Mark Newman, las
 * ``netscience.gml``: red de coautoría de artículos científicos, específicamente sobre el tema de redes complejas.
 
 El primer objetivo es determinar si los nodos de alto grado tienden a conectarse con otros nodos de alto grado, o si por el contrario suelen conectarse a nodos de bajo grado. Es decir, si la red es asortativa o disortativa respecto al grado. Para ello:
-i. Se calcula, para nodos de grado *𝑘*, cuánto vale en media el grado de sus vecinos *k_{nm}(k)*.
+i. Se calcula, para nodos de grado *𝑘*, cuánto vale en media el grado de sus vecinos $k_{nm}(k)$.
 ii. Se analiza la tendencia observada en un gráfico que consigne dicho valor como función del grado.
 iii. Asumiendo que *k_{nm}(k) = ak^\mu*
