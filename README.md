@@ -51,4 +51,4 @@ En el script ``parte_2.py`` se analizan dos redes relevadas por Mark Newman, las
 El primer objetivo es determinar si los nodos de alto grado tienden a conectarse con otros nodos de alto grado, o si por el contrario suelen conectarse a nodos de bajo grado. Es decir, si la red es asortativa o disortativa respecto al grado. Para ello:
 1. Se calcula, para nodos de grado *𝑘*, cuánto vale en media el grado de sus vecinos *k<sub>nm</sub>(k)*.
 2. Se analiza la tendencia observada en un gráfico que consigne dicho valor como función del grado.
-3. Asumiendo que *k<sub>nm</sub>(k) = ak<sup>\mu</sup>*
+3. Asumiendo que *k<sub>nm</sub>(k) = ak<sup>&mu;</sup>*
