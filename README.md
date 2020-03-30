@@ -3,7 +3,7 @@
 En este trabajo se analizan distintas redes (redes de interacción proteína-proteína, redes sociales, redes de colaboraciones científicas) utilizando herramientas de Redes Complejas. Ésta es un área de investigación relativamente joven (años 2000) de la que fueron pioneros László Barabási y Mark Newman entre otros. Estas herramientas están implementadas en la librería  [``NetworkX``](https://networkx.github.io/documentation/stable/index.html) (versión 2).
 
 ## Parte 1
-En esta sección se estudian 3 redes de interacciones entre proteínas, las cuales están en la carpeta ``dataset``. Estas 3 redes corresponden a un mismo organismo (levadura) pero fueron relevadas de distintas maneras (esto se explica en detalle en la sección ``Análisis de los resultados``):
+En esta sección se estudian 3 redes de interacciones entre proteínas, las cuales están en la carpeta ``dataset``. Estas 3 redes corresponden a un mismo organismo (levadura) pero fueron relevadas de distintas maneras (esto se explica en detalle en la sección *Análisis de los resultados*):
 
 * ``yeast_Y2H.txt``: red de interacciones binarias
 * ``yeast_AP-MS.txt``: red de copertenencia a complejos proteicos
@@ -16,7 +16,7 @@ En primer lugar se grafica cada red representándola con un grafo, donde cada no
 ![red AP-MS](./images/red_AP-MS.png)
 ![red LIT](./images/red_LIT.png)
 
-En segundo lugar se calculan diversas propiedades de las redes (ver sección ``Análisis de los resultados``), y se muestran los resultados en la siguiente tabla:
+En segundo lugar se calculan diversas propiedades de las redes (ver sección *Análisis de los resultados*), y se muestran los resultados en la siguiente tabla:
 
 | FILE     | N        | L        | k_medio  | k_max    | k_min    | densidad | C_global | C_local  | diametro |
 | ---------|----------|----------|----------|----------|----------|----------|----------|----------|--------- |
