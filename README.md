@@ -41,3 +41,9 @@ El clustering global es el número total de tripletes cerrados sobre el número 
 
 **Coeficiente de clustering local (\<C\>)**\
 \<C\> aumenta con el número de vecinos enlazados de una red. En la red AP-MS, si a cada proteína se le asignan enlaces con todas las demás inmunoprecipitadas en el mismo complejo multiproteico, el coeficiente \<C\> se ve incrementado artificialmente por la estimación de contactos probablemente inexistentes en la naturaleza. Los resultados obtenidos en este problema son los esperados dado que la red AP-MS posee el mayor valor de \<C\>, 12 veces superior al de la red binaria Y2H. La red de la literatura posee un \<C\> intermedio, con un valor 6 veces mayor al de Y2H. Esta última observación podría deberse a la posible ocurrencia de falsos negativos en el método Y2H, es decir, un alto número de interacciones proteína-proteína serían indetectables por Y2H pero podrían ser detectadas por varias otras técnicas reportadas en la literatura.
+
+## Parte 2
+
+En el script ``parte_2.py`` se analizan dos redes relevadas por Mark Newman, las cuales están disponibles en su [página personal](http://www-personal.umich.edu/~mejn/netdata/).
+* ``netscience.gml``: red de coautoría de artículos científicos, específicamente sobre el tema de redes complejas.
+* ``as-22july06.gml``: red de sistemas autónomos de internet.
