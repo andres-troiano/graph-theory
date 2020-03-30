@@ -6,12 +6,11 @@ import numpy as np
 import scipy.stats as st
 import os
 
-basepath = 'C:\\Users\\Norma\\Downloads\\redes\\TP1\\PROYECTO GH'
+basepath = 'C:\\Users\\username\\python_scripts\\Redes-Complejas'
 os.chdir(basepath)
 
 import modulo_redes as mr
 
-# empiezo trabajando con la red de internet
 files = ["./dataset/as-22july06.gml", "./dataset/netscience.gml"]
 
 for f in files:
