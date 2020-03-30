@@ -51,10 +51,11 @@ En el script ``parte_2.py`` se analizan dos redes relevadas por Mark Newman, las
 El primer objetivo es determinar si los nodos de alto grado tienden a conectarse con otros nodos de alto grado, o si por el contrario suelen conectarse a nodos de bajo grado. Es decir, si la red es asortativa o disortativa respecto al grado. Para ello:
 1. Se calcula, para nodos de grado *𝑘*, cuánto vale en media el grado de sus vecinos *k<sub>nm</sub>(k)*.
 2. Se analiza la tendencia observada en un gráfico que consigne dicho valor como función del grado.
-3. Asumiendo que *k<sub>nm</sub>(k) = ak<sup>&mu;</sup>*, se estima el coeficiente de correlación realizando una regresión de *log(k)<sub>nn</sub> ~ log(k)*
+3. Asumiendo que *k<sub>nm</sub>(k) = ak<sup>&mu;</sup>*, se estima el coeficiente de correlación realizando una regresión de *log(k)<sub>nn</sub> ~ log(k)*. En escala logarítmica *&mu;* es la pendiente de la recta, y proporciona una medida de la asortatividad.
 4. Calculando la asortatividad de la red ahora con el estimador de Newman, detallado en las ecuaciones 8.26 - 8.29 de su libro *Networks, an introduction*
 
 ### Resultados y análisis
 #### Red de sistemas autónomos
+![alt-text-1](image1.png "title-1") ![alt-text-2](image2.png "title-2")
 
 #### Red de colaboraciones científicas
