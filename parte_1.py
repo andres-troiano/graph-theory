@@ -1,5 +1,10 @@
 import networkx as nx # librería de redes y grafos
 import matplotlib.pylab as plt
+import os
+
+basepath = 'C:\\Users\\username\\python_scripts\\Redes-Complejas'
+os.chdir(basepath)
+
 import modulo_redes as mr
 
 # Tengo 3 redes de interacciones de proteínas, pero relevadas de diferentes maneras.
