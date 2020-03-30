@@ -1,6 +1,6 @@
 import networkx as nx # librería de redes y grafos
 import matplotlib.pylab as plt
-from modulo_redes import *
+import modulo_redes as mr
 
 # Tengo 3 redes de interacciones de proteínas, pero relevadas de diferentes maneras.
 
@@ -14,11 +14,11 @@ print(len(resultados)*11*"=")
 
 for f in files:
 
-    datos = ldata(basepath + f)
+    datos = mr.ldata(basepath + f)
     G = nx.Graph()
     G.add_edges_from(datos)
     
-    tag = split(f, ("_", "."))[1]
+    tag = mr.split(f, ("_", "."))[1]
 
     # calculo N
     N = G.number_of_nodes()
