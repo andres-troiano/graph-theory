@@ -1,68 +1,107 @@
-# Redes Complejas
+# Complex network analysis using Graph Theory
 
-En este trabajo se analizan distintas redes (redes de interacción proteína-proteína, una red de colaboraciones científicas y una de sistemas autónomos de internet) utilizando herramientas de Redes Complejas. Ésta es un área de investigación relativamente joven (años 2000) de la que fueron pioneros László Barabási y Mark Newman entre otros. Estas herramientas están implementadas en la librería  [``NetworkX``](https://networkx.github.io/documentation/stable/index.html) (en este proyecto se utiliza la versión 2).
+## Abstract
+Several networks were analyzed using Complex Networks theory: a protein-protein interaction network, a scientific collaboration network, and a network of Internet autonomous systems. This relatively recent field was pioneered by [László Barabási](https://barabasilab.com/) and [Mark Newman](http://www-personal.umich.edu/~mejn/) among others. Many of the tools developed in this field are implemented in Python's [``NetworkX``](https://networkx.github.io/documentation/stable/index.html) library (in this project version 2 was used).
 
-## Parte 1
-En esta sección se estudian 3 redes de interacciones entre proteínas, las cuales están en la carpeta ``dataset``. Estas 3 redes corresponden a un mismo organismo (levadura) pero fueron relevadas de distintas maneras (esto se explica en detalle en la sección *Análisis de los resultados*):
 
-* ``yeast_Y2H.txt``: red de interacciones binarias
-* ``yeast_AP-MS.txt``: red de copertenencia a complejos proteicos
-* ``yeast_LIT.txt``: red relevada de la literatura
+## 1. Protein-protein interaction network
 
-En el script ``parte_1.py`` se desarrolla el siguiente análisis:
-En primer lugar se grafica cada red representándola con un grafo, donde cada nodo es una proteína y cada vértice representa una interacción. Para mayor claridad sólo se graficó la componente conexa más grande, como se muestra a continuación:
+We study 3 protein interaction networks, belonging to *Saccharomyces cerevisiae*, a species of yeast. These 3 networks differ in the method by which they were constructed:
+
+#### Binary interactions network (Y2H)
+
+The network of binary interactions reports protein-protein contacts revealed by a molecular biology method called *yeast two hybrid* (Y2H). To determine if two proteins interact with each other, each one is fused to a different fragment of a transcription factor responsible for activating a reporter gene. In the event that the proteins interact, the fragmented transcription factor is reconstituted, allowing its binding to the UAS regulatory sequence in the DNA and activation of the reporter gene.
+
+#### Protein complex co-membership network (AP-MS)
+
+These networks are constructed using specific antibodies to immunoprecipitate a given protein. Then, mass spectrometry (MS) identifies all the proteins that may have co-immunoprecipitated with the previous one because they are part of a multiprotein complex.
+
+#### Network surveyed from the literature (LIT)
+
+These are interactions reported in the literature.
+
+### 1.1 Network visualization
+
+First we plot each network as a graph, where nodes represent proteins and edges represent interactions. For the sake of clarity, only the largest connected component was plotted, as seen below:
 
 ![red Y2H](./images/red_Y2H.png)
 ![red AP-MS](./images/red_AP-MS.png)
 ![red LIT](./images/red_LIT.png)
 
-En segundo lugar se calculan diversas propiedades de las redes (ver sección *Análisis de los resultados*), y se muestran los resultados en la siguiente tabla:
+### 1.2 Network features
 
-| FILE     | N        | L        | k_medio  | k_max    | k_min    | densidad | C_global | C_local  | diametro |
+We calculate the following features for each network:
+
+- Number of nodes *N*
+- Number of edges *L*
+- Mean, max and min degree *k_mean*, *k_max*, *k_min*
+- Density
+- Global clustering coefficient *C_global*
+- Local clustering coefficient *C_local*
+- Network diameter
+
+| FILE     | N        | L        | k_mean   | k_max    | k_min    | density  | C_global | C_local  | diameter |
 | ---------|----------|----------|----------|----------|----------|----------|----------|----------|--------- |
 | Y2H      | 2018     | 2930     | 2.9      | 91       | 1        | 0.001    | 0.02     | 0.05     | 14       |
 | LIT      | 1536     | 2925     | 3.8      | 40       | 1        | 0.002    | 0.35     | 0.29     | 19       |
 | AP-MS    | 1622     | 9070     | 11.2     | 127      | 1        | 0.007    | 0.62     | 0.55     | 15       |
 
-### Análisis de los resultados:
+### 1.3 Results and discussion
 
-**Número de nodos (N)**\
-La red de interacciones binarias reporta contactos proteína-proteína relevados por un método de biología molecular denominado doble híbrido de levaduras (*yeast two hybrid: Y2H*). Para determinar si dos proteínas interactúan entre sí, cada una se fusiona a un fragmento distinto de un factor de transcripción encargado de activar a un gen reportero. En el caso de que las proteínas interactúen, el factor de transcripción fragmentado se reconstituye, permitiendo su unión a la secuencia regulatoria UAS en el ADN y la activación del gen reportero. El método Y2H se lleva a cabo mediante estrategias *high-throughput* (de alto rendimiento) que permiten relevar en forma combinatoria y automatizada un alto número de proteínas en simultáneo. Las proteínas constituyen los nodos de las redes analizadas, y por lo tanto es esperable que el número total de nodos de Y2H (2018) sea mayor al de las otras dos.\
-Las redes de co-pertenencia a complejos protéicos (AP-MS) se construyen utilizando anticuerpos específicos para inmunoprecipitar una proteína dada, y luego se identifican por espectrometría de masa (MS) todas las proteínas que puedan haber co-inmunoprecipitado con la anterior por formar parte de un complejo multiproteico. En este caso la cantidad de nodos de la red dependerá del repertorio disponible de anticuerpos de buena calidad (alta afinidad y especificidad), y por lo tanto se espera que contenga un número de nodos (proteínas) menor que el de Y2H. La red obtenida de la literatura reporta interacciones determinadas por distintos métodos, pero también se espera que no logre cubrir todas las combinaciones posibles analizadas en un método *high-throughput*.
+#### Number of nodes *N*
 
-**Número de enlaces (L)**\
-En la red AP-MS, a toda proteína co-inmunoprecipitada en un complejo multiproteico se le asignan enlaces con la proteína reconocida por el anticuerpo, reportando contactos que probablemente no existen en la naturaleza. Esto aumentaría artificialmente el número de enlaces totales de la red, tal como se observa en los resultados donde los enlaces de AP-MS triplican a los de Y2H y de la literatura.
+Because the Y2H method is carried out using high-throughput strategies that allow the combinatorial and automated survey of a large number of proteins simultaneously, it is to be expected that the total number of nodes will be greater for the Y2H network than for the others.
 
-**Grado medio (k_medio), grado máximo (k_max) y densidad**\
-Como se mencionó arriba, la red AP-MS aumenta artificialmente el número de vecinos para todas las proteínas que formen parte de complejos multiproteicos, y por lo tanto se espera que el grado medio, grado máximo y densidad de esta red sean superiores a los de las otras dos.
+In the case of the AP-MS network, the number of nodes will depend on the available repertoire of good quality antibodies (high affinity and specificity), and therefore it is expected to contain fewer nodes (proteins) than Y2H.
 
-**Coeficiente de clustering global**\
-El clustering global es el número total de tripletes cerrados sobre el número total de tripletes conectados. Este coeficiente da mayor peso a la medida en la que se conectan los vecinos de los nodos de alto grado, y por lo tanto la red AP-MS debería reportar un valor superior al de las otras dos redes, incluso mayor que su valor de \<C\>. Los resultados obtenidos concuerdan con lo esperado, dado que el valor del coeficiente de clustering global de AP-MS es 26 veces mayor que el de Y2H y aproximadamente dos veces mayor que el de la red de co-pertenencia a complejos protéicos.
+The number of interactions reported on the literature, on the other hand, is expected to be limited. This is consistent with the observation that the LIT network exhibits fewer nodes than the other two.
 
-**Coeficiente de clustering local (\<C\>)**\
-\<C\> aumenta con el número de vecinos enlazados de una red. En la red AP-MS, si a cada proteína se le asignan enlaces con todas las demás inmunoprecipitadas en el mismo complejo multiproteico, el coeficiente \<C\> se ve incrementado artificialmente por la estimación de contactos probablemente inexistentes en la naturaleza. Los resultados obtenidos en este problema son los esperados dado que la red AP-MS posee el mayor valor de \<C\>, 12 veces superior al de la red binaria Y2H. La red de la literatura posee un \<C\> intermedio, con un valor 6 veces mayor al de Y2H. Esta última observación podría deberse a la posible ocurrencia de falsos negativos en el método Y2H, es decir, un alto número de interacciones proteína-proteína serían indetectables por Y2H pero podrían ser detectadas por varias otras técnicas reportadas en la literatura.
+#### Number of edges *L*
 
-## Parte 2
+In the AP-MS network, any protein co-immunoprecipitated in a multiprotein complex is assigned links to the protein recognized by the antibody, reporting contacts that probably do not exist in nature. This would artificially increase the number of total links in the network, as observed in the results where the AP-MS links triple those of Y2H and LIT.
 
-En el script ``parte_2.py`` se analizan dos redes relevadas por Mark Newman, las cuales están disponibles en su [página personal](http://www-personal.umich.edu/~mejn/netdata/).
-* ``as-22july06.gml``: red de sistemas autónomos de internet.
-* ``netscience.gml``: red de coautoría de artículos científicos, específicamente sobre el tema de redes complejas.
+#### *k_mean*, *k_max*, *k_min* and density
 
-El objetivo es determinar si los nodos de alto grado tienden a conectarse con otros nodos de alto grado, o si por el contrario suelen conectarse a nodos de bajo grado. Es decir, si la red es asortativa o disortativa respecto al grado. Para ello:
-1. Se calcula, para nodos de grado *𝑘*, cuánto vale en media el grado de sus vecinos *k<sub>nm</sub>(k)*.
-2. Se analiza la tendencia observada en un gráfico que consigne dicho valor como función del grado.
-3. Asumiendo que *k<sub>nm</sub>(k) = ak<sup>&mu;</sup>*, se estima el coeficiente de correlación realizando una regresión de *log(k)<sub>nn</sub> ~ log(k)*. En escala logarítmica *&mu;* es la pendiente de la recta, y proporciona una medida de la asortatividad.
-4. Calculando la asortatividad de la red ahora con el estimador de Newman, detallado en las ecuaciones 8.26 - 8.29 de su libro *Networks, an introduction*
+As mentioned above, the AP-MS network artificially increases the number of neighbors for all proteins that are part of multiprotein complexes, and therefore the mean degree, maximum degree, and density of this network are expected to be higher than those of the other two.
 
-### Resultados y análisis
-#### Red de sistemas autónomos
+#### Global clustering coefficient *C_global*
+
+Global clustering is the total number of closed triplets over the total number of connected triplets. This coefficient gives greater weight to the extent to which the neighbors of high-degree nodes are connected, and therefore the AP-MS network should report a higher value than the other two networks, even higher than its value of \ <C\>. The results obtained agree with what was expected, given that the value of the global clustering coefficient of AP-MS is 26 times greater than that of Y2H and approximately two times greater than that of the network of co-membership of protein complexes.
+
+#### Local clustering coefficient *C_local*
+
+\<C\> increases with the number of linked neighbors of a network. In the AP-MS network, if each protein is assigned links to all the others immunoprecipitated in the same multiprotein complex, the \<C\> coefficient is artificially increased by estimating contacts that probably do not exist in nature. The results obtained in this problem are as expected since the AP-MS network has the highest value of \<C\>, 12 times higher than that of the Y2H binary network. The literature network has an intermediate \<C\>, with a value 6 times greater than that of Y2H. This last observation could be due to the possible occurrence of false negatives in the Y2H method, that is, a high number of protein-protein interactions would be undetectable by Y2H but could be detected by various other techniques reported in the literature.
+
+## 2. Degree assortativity analysis
+
+In this section we analyze two different networks curated by Mark Newman, and available in his [personal page](http://www-personal.umich.edu/~mejn/netdata/):
+
+- Internet autonomous systems network.
+- Network of co-authoring of scientific articles (specifically on the topic of complex networks)
+
+Our goal is to determine if high degree nodes tend to connect with other high degree nodes, or if on the contrary they tend to connect to low degree nodes. That is, if the network is assortative or dissortative with respect to degree. In order to do this:
+
+1. We calculate, for nodes of degree *𝑘*, the mean value of the degrees of its neighbors *k<sub>nm</sub>(k)*.
+2. We analyze this trend in a plot that records said value as a function of the degree.
+3. Assuming that *k<sub>nm</sub>(k) = ak<sup>&mu;</sup>*, the correlation coefficient is estimated by performing a regression of *log(k)<sub>nn< /sub> ~ log(k)*. On logarithmic scale *µ* is the slope of the line, and provides a measure of assortativity.
+4. We calculate the assortativity of the network now with the Newman estimator, detailed in equations 8.26 - 8.29 of his book *Networks, an introduction*
+
+### 2.1 Results and discussion
+
+#### Autonomous systems network
+
 ![as_scatter](./images/as_scatter.png) ![as_fit](./images/as_fit.png)
 
-En las dos figuras superiores se observa lo siguiente: cada punto azul es un nodo. En la coordenada *𝑥* está su grado, y en la coordenada 𝑦 el promedio de los grados de todos sus vecinos. En rojo se muestra el promedio del grado medio de los vecinos para cada grado (*𝑘<sub>nm</sub>*). En otras palabras, el promedio de todas las coordenadas *𝑦* realizadas para cada coordenada *𝑥*.
+In the two upper figures, each blue point is a node. the *𝑥* coordinate represents the node's degree, and the 𝑦 coordinate represents the average of the degrees of all its neighbors. The average of the mean degree of the neighbors for each degree is shown in red (*𝑘<sub>nm</sub>*). In other words, the average of all *𝑦* coordinates realized for each *𝑥* coordinate.
 
-La pendiente del ajuste es -0.44, mientras que el estimador de Newman es -0.20. Ambos son consistentes en indicar disortatividad, dado el signo negativo. Es decir que en esta red los nodos de alto grado tienden a relacionarse con nodos de bajo grado.
+The slope of the fit is -0.44, while the Newman estimator is -0.20. Both are consistent in indicating dissortativity, given the negative sign. In other words, in this network, high degree nodes tend to be related to low degree nodes.
 
-#### Red de colaboraciones científicas
+#### Scientific collaborations network
+
 ![netscience_scatter](./images/netscience_scatter.png) ![netscience_fit](./images/netscience_fit.png)
 
-En este caso la pendiente del ajuste es 0.31 mientras que el estimador de Newman es 0.46, con lo cual decimos que esta red es asortativa con respecto al grado.
+In this case, the slope of the fit is 0.31 while Newman's estimator is 0.46, so we conclude that this network is assortative with respect to degree.
+
+### 3. Conclusions
+
+We analyzed several networks using the theory of complex networks, which is a subset of graph theory. We were able to extract features that characterize the networks, as well as determine wether certain networks are assortative or dissortative with respect to degree.
